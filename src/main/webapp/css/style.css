@@ -1,0 +1,166 @@
+@CHARSET "UTF-8";
+
+*{
+	margin: 0;
+	padding: 0;
+}
+
+
+body{
+	 background-color: #FAFAFA;
+}
+
+
+.header_div{
+	width: 100%;
+	height: 10%;
+	background-color: #558C89;
+	opacity: 0.9;
+}
+
+
+
+#wrapper{
+	position:absolute;
+	width: 100%;
+	height: 900px;
+}
+
+.content_div{
+	margin-left:auto;
+	margin-right:auto;
+	padding:10px;
+	width: 80%;
+	height:100%;
+
+}
+
+.box {
+		background-color: #EFEFEF;
+		color: #fff;
+		border-radius: 5px;
+	
+		font-size: 150%;
+		margin-left: 25px;
+		float: left;
+		elevation: higher;
+	    position: relative;
+	    width: 220px;
+	
+	    margin-bottom: 15px;
+	    z-index: 1;
+	    height: 275px;
+	    overflow: hidden;
+	    
+	    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.bwrapper{
+	position: absolute;
+	width:100%;
+	bottom: 0px;
+}
+
+.bclass{
+	width: 100%;
+	height: 35px;
+	background-color: #80cbc4;
+}
+
+.thumbnails{
+	position: absolute;
+	width:100%;
+	top: 0px;
+}
+
+.redcolor{
+	color : red;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.sizclass{
+	font-size: 12px;
+	color: black;;
+}
+
+.header_text{
+	float: left;
+}
+
+.menu{
+	position:relative;
+	float: right;
+	width:40%;
+	height:100%;
+
+}
+
+h1 { color: #ffffff;
+ font-family: 'Raleway',sans-serif; 
+ font-size: 30px; 
+ font-weight: 800; 
+ text-shadow: 2px 2px 0px #eee, 7px 7px 0px #707070;
+ font-style:italic;
+ line-height: 72px; 
+ margin-left:150px;
+ text-align: center; 
+ text-transform: uppercase; 
+ }
+ 
+ .shoppingcard {
+   position:relative;
+   margin-left:100px;
+   margin-top:10px;
+   width: 55%;
+   height:80px;
+ }
+ 
+  .shopping_cart{
+     position:absolute;
+     bottom: 0px;
+ }
+ 
+ .shopping_input {
+ display:inline-block;
+    position:absolute;
+    bottom:0px;
+    width: 25px;
+    margin-left: 50px;
+ }
+ 
+ .sizeclass{
+   width:25px;
+   border-radius: 7px;
+ }
+ 
+ .shopping_checkout{
+ 
+    position:absolute;
+    bottom:0px;
+    width: 120px;
+    margin-left: 90px;
+   
+ }
+ 
+ .link_button {
+    color: white;
+    background: #7fcad0;
+    padding: 10px 20px;
+    display: block;
+    margin: 10px 0;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 13px;
+    text-decoration:none;
+    border-radius: 3px;
+ }
+ 
+ .link-button:hover {
+    background: #6ab8be;
+}
+ 
+ 
+
+
