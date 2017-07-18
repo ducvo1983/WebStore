@@ -20,7 +20,7 @@ public class TldProductViewController extends SimpleTagSupport {
 				   .append("<form action='/addServlet' method='post'>")
 				   .append("<div class='thumbnails'>")
 				   .append("<img alt='" + product.getName() + "' ")
-				   .append("src='" + product.getImage() + "' />")
+				   .append("src='images/" + product.getImage() + ".png' />")
 				   .append("<span class='redcolor'>Price " + product.getPrice() + "$.</span>")
 				   .append("<span class='sizclass'>" + product.getDescription() + "</span><br />")
 				   .append("<span class='sizclass'>Quantity:</span>")

@@ -13,11 +13,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.wap.model.Product;
-import com.wap.repository.DataStore;
+import com.wap.repository.ProductStore;
 
 
 
-@WebServlet(urlPatterns={"/addtocartServlet",""})
+
 public class AddtocartServlet extends HttpServlet {
 
 	/**
@@ -27,14 +27,16 @@ public class AddtocartServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		System.out.println("-------sizeeee----------");
 		resp.setContentType("text/html;charset=UTF-8");
         PrintWriter out = resp.getWriter();
 
         resp.setContentType("text/html;charset=UTF-8");
         // PrintWriter out = response.getWriter();
-
+         
         HttpSession session = req.getSession();
-        List<Product> products = DataStore.getAllProducts();
+        List<Product> products = ProductStore.getAllProducts();
+        System.out.println("-------sizeeee----------"+products.size());
         session.setAttribute("products", products);
         resp.sendRedirect("catalog.jsp");
 		

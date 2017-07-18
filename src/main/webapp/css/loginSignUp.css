@@ -1,0 +1,17 @@
+
+#loginSingUpContainer {
+	margin: auto;
+	margin-top: 10%;
+	border: 2px solid gray;
+	width: 40%;
+}
+
+
+
+.container {
+	width: 100%;
+}
+
+.well {
+	margin-bottom: 0;
+}
