@@ -54,6 +54,8 @@ public class Product {
 		this.image = image;
 	}
     
-    
+    public String getDescription() {
+    	return "good shoes and cheap prices";
+    }
 
 }

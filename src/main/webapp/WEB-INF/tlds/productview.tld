@@ -1,12 +1,11 @@
 <taglib>
 <tlib-version>1.0</tlib-version>
 <jsp-version>1.0</jsp-version>
-<short-name>Current DateTime Custom Tag</short-name>
-<uri>/WEB-INF/tlds/ProductView</uri>
+<short-name>Product View Custom Tag</short-name>
 <tag>
 <description>Product View</description>
 <name>productview</name>
-<tag-class>mum.edu.cs472.lab13.controller.SCProductViewController</tag-class>
+<tag-class>com.wap.controller.TldProductViewController</tag-class>
 <body-content>empty</body-content>
 <attribute>
 <name>product</name>

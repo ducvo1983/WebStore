@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>   
+<%@taglib prefix="pv" uri="/WEB-INF/tlds/productview.tld" %> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,23 +30,8 @@
 		  </div>
 		</div>
 		<div class="content_div">
-			<c:forEach begin="0" end="15" step="1" varStatus="status">
-				<div class="box">
-				   <form action="/addServlet" method="post">
-					<div class="thumbnails">
-						<img alt="choes" src="${status.index % 2 == 0 ?'images/shoem2.png':'images/shoef2.png'}">
-						<span class="redcolor">Price 25$.</span>
-						<span class="sizclass">good shoes with sheap prices<br/> Quantity:</span>
-						 <input class="sizeclass" type="number" min="1" maxlength="100" name="i_number" required="required"/>
-						
-					</div>
-					<div class="bwrapper">
-					  
-						<input class="bclass" type="submit" value="Add to Chart" />
-						
-					</div>
-					</form>
-				</div>
+			<c:forEach var="product" items="${products}">
+				<pv:productview product="${product}"/>
 			</c:forEach>
 		</div>
 	</div>
