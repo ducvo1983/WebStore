@@ -27,7 +27,7 @@ public class ProductStore {
 		database.put(genId(), new Product(String.valueOf(genId()),"men shirt",500,"shirt4","", "",100));
 		database.put(genId(), new Product(String.valueOf(genId()),"girl shirt",30,"gshirt1","", "",100));
 		database.put(genId(), new Product(String.valueOf(genId()),"girl shirt",35,"gshirt2","", "",100));
-		database.put(genId(), new Product(String.valueOf(genId()),"girl shirt",0,"gshirt3","", "",100));
+		database.put(genId(), new Product(String.valueOf(genId()),"girl shirt",40,"gshirt3","", "",100));
 		database.put(genId(), new Product(String.valueOf(genId()),"girl shirt",30,"gshirt4","", "",100));
 	}
 
@@ -40,6 +40,17 @@ public class ProductStore {
 		
 		return new ArrayList<Product>(database.values());
 	}
+	
+
+	public static synchronized boolean checkProductInDB(int productId) {
+	     
+		return database.containsKey(productId);
+   }
+	
+	public static synchronized Product getProductInDB(int productId) {
+	     
+		return database.get(productId);
+   }
 	
 	
 	public static void updateProduct(String id, Product p) {

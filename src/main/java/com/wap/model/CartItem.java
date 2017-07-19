@@ -12,10 +12,10 @@ public class CartItem {
 	 * @param product
 	 * @param quantity
 	 */
-	public CartItem(Product product) {
+	public CartItem(Product product, int qty) {
 		super();
 		this.product = product;
-		this.quantity = 1;
+		this.quantity = qty;
 	}
 	/**
 	 * @return the product
@@ -39,9 +39,14 @@ public class CartItem {
 	 * @param quantity the quantity to set
 	 */
 	public void setQuantity(int quantity) {
-		this.quantity = quantity;
+		this.quantity += quantity;
 	}
 	
+	
+	public double getTotalPrice(){
+		
+		return this.getQuantity() * this.getProduct().getPrice();
+	}
 	
 	
 }
