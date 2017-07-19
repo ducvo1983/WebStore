@@ -5,7 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-<link href="../css/bootstrap.css" type="text/css" rel="stylesheet">
+
+<link href="<c:url  value='/css/bootstrap.css'/>" type="text/css" rel="stylesheet">
 </head>
 <body>
 

@@ -1,15 +1,12 @@
 
-#loginSingUpContainer {
+#orderListContainer {
 	margin: auto;
 	margin-top: 3%;
 	border: 2px solid gray;
-	width: 50%;
+	border-radius: 10px;
+	width: 80%;
 }
 
 .container {
 	width: 100%;
-}
-
-.well {
-	margin-bottom: 0;
 }

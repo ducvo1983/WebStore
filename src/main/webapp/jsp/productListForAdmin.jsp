@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Product list for Admin</title>
 
-<link href="../css/productListForAdmin.css" type="text/css"
+<link href="<c:url  value='css/productListForAdmin.css'/>" type="text/css"
 	rel="stylesheet">
 </head>
 <body>

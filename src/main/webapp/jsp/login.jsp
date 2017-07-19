@@ -6,13 +6,13 @@
 <head>
 <title>login</title>
 	<jsp:include page="mainHeads.jsp"></jsp:include>
-	<link href="../css/loginSignUp.css" type="text/css" rel="stylesheet">
+	<link href="<c:url  value='/css/loginSignUp.css'/>" type="text/css" rel="stylesheet">
 </head>
 <body>
 	<div id="loginSingUpContainer">
 		<div class="container well">
 			<legend> Sign In! </legend>
-			<form action="" method="post">
+			<form action="login" method="post">
 				<div class="form-group">
 					<label for="username">Username:</label> 
 					<input type="text" class="form-control" id="username" placeholder="Enter email" name="username"

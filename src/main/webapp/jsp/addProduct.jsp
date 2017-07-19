@@ -6,7 +6,8 @@
 <head>
 <title>login</title>
 	<jsp:include page="mainHeads.jsp"></jsp:include>
-	<link href="../css/addUpdateProduct.css" type="text/css" rel="stylesheet">
+	
+	<link href="<c:url  value='/css/addUpdateProduct.css'/>" type="text/css" rel="stylesheet">
 </head>
 <body>
 	<div id="loginSingUpContainer">
