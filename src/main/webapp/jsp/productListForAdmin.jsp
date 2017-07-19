@@ -8,9 +8,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Product list for Admin</title>
 
-<link href="<c:url  value='css/productListForAdmin.css'/>" type="text/css"
+<link href="<c:url value='/css/productListForAdmin.css' />" type="text/css"
 	rel="stylesheet">
+<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="<c:url value='/js/product_op.js' />"></script>
 </head>
+
 <body>
 
 	<div id="wrapper">
@@ -23,8 +27,8 @@
 
 		<div id="content">
 
-			<button id="addProductButton">Add New Product</button>
-			<table>
+			<!-- <button id="addProductButton">Add New Product</button> -->
+			<table id="product_list">
 				<thead>
 					<tr>
 						<th>Product Name</th>
@@ -34,31 +38,33 @@
 				</thead>
 				<tbody>
 					<c:forEach items="${products}" var="product">
-						<c:url var="updateLink" value="TODO">
+						<c:url var="updateLink" value="/product_controller">
 							<!-- This should be sent to the get method -->
 							<c:param name="command" value="UPDATE"></c:param>
 							<c:param name="productId" value="${product.id }"></c:param>
 
 						</c:url>
-						<c:url var="deleteLink" value="TODO">
+						<c:url var="deleteLink" value="product_controller">
 							<!-- This should be sent to the get method -->
 							<c:param name="command" value="DELETE"></c:param>
 							<c:param name="productId" value="${product.id }"></c:param>
 
 						</c:url>
-						<tr>
-							<td>${product.name}</td>
-							<td>${product.price}</td>
+						<tr id="product${product.id }">
+							<td id="name${product.id }">${product.name}</td>
+							<td id="price${product.id }">${product.price}</td>
 							<td>
-								<a href="${updateLink }">Update</a>
-								|
-								<a href="${deleteLink }">Delete</a>
+								<button class="btnDisplay" data-id="${product.id }">Display</button>
+								<button class="btnDel" data-id="${product.id }">Delete</button>
 							</td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
 		</div>
+		<fieldset>
+				<jsp:include page="updateProduct.jsp"></jsp:include>
+		</fieldset>
 	</div>
 
 </body>

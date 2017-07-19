@@ -8,6 +8,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>webstore</title>
 <link rel="stylesheet" type="text/css" href="css/style.css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="<c:url value='/js/webstore.js' />"></script>
 </head>
 <body>
 	<div id="wrapper">
@@ -21,10 +23,10 @@
 		     <img alt="shopping_cartImage" src="images/shpp.png">
 		     </div>
 		     <div class="shopping_input">
-		     <label><input class="sizeclass" disabled="disabled" type="text" value="0" name="i_number"/>Items</label>
+		     <label><input class="sizeclass" disabled="disabled" type="text" value="${cart_size}" id="i_number"/>Items</label>
 		     </div>
 		      <div class="shopping_checkout">
-		           <a class="link_button" href="/checkoutServlet">Checkout</a>
+		           <a class="link_button" href="<c:url value ="/cartViewServlet"/>">Checkout</a>
 		     </div>
 		  </div>
 		  </div>

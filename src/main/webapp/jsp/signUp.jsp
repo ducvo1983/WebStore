@@ -13,7 +13,7 @@
 	<div id="loginSingUpContainer">
 		<div class="container well">
 			<legend> Sign Up! </legend>
-			<form action="" method="post">
+			<form action="signup" method="post">
 				<div class="form-group">
 					<label for="firstName">First Name:</label> 
 					<input type="text" class="form-control" id="firstName" placeholder="First Name" name="firstName" required>
@@ -23,14 +23,23 @@
 					<input type="text" class="form-control" id="lastName" placeholder="Last Name" name="lastName" required>
 				</div>
 				<div class="form-group">
-					<label for="username">Email:</label> 
-					<input type="text" class="form-control" id="username" placeholder="Enter email" name="username" required>
+					<label for="email">Email:</label> 
+					<input type="text" class="form-control" id="email" placeholder="Enter email" name="email" pattern="^[a-zA-Z0-9_\-]+@(([a-zA-Z_\-])+\.)+[a-zA-Z]{2,4}$" required>
+				</div>
+				<div class="form-group">
+					<label for="phone">Phone number:</label> 
+					<input type="text" class="form-control" id="phoneNo" placeholder="Enter phone number" name="phoneNo" pattern="^((\d){10})$">
+				</div>
+				<div class="form-group">
+					<label for="username">User name:</label> 
+					<input type="text" class="form-control" id="username" placeholder="Enter user name" name="username" pattern="(?=\S)(^[a-zA-Z0-9_]+$)" required>
 				</div>
 				<div class="form-group">
 					<label for="password">Password:</label> 
-					<input class="form-control" type="password" id="password" placeholder="Enter password" name="password" required>
+					<input class="form-control" type="password" id="password" placeholder="Enter password" pattern="((?=.*[A-Z])(?=.*[a-z])(?=.*\d).{6,})" name="password" required>
 				</div>
-				<button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+				<button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button><br />
+				<span style="color:red;text-align:center;'">${error_signup_msg}</span>
 			</form>
 		</div>
 	</div>

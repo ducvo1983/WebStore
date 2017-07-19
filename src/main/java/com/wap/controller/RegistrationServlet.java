@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.wap.model.Account;
+import com.wap.repository.AccountStore;
 
 @WebServlet("/signup")
 public class RegistrationServlet extends HttpServlet {
@@ -17,24 +18,28 @@ public class RegistrationServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//super.doGet(req, resp);
-		req.getRequestDispatcher("/signup.jsp").forward(req, resp);
+		req.getRequestDispatcher("/jsp/signUp.jsp").forward(req, resp);
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//super.doPost(req, resp);
-		/*String firstName = req.getParameter("fname");
-		String lastName = req.getParameter("lname");
+		String firstName = req.getParameter("firstName");
+		String lastName = req.getParameter("lastName");
+		String email = req.getParameter("email");
 		String userName = req.getParameter("username");
 		String password = req.getParameter("password");
-		String address = req.getParameter("address");
-		
-		Account acc = new Account(firstName, lastName, userName, password, address);
-		DataStore.addAccount(acc);
-		HttpSession s = req.getSession();
-		s.setAttribute("username", acc);
-		req.getRequestDispatcher("checkout").forward(req, resp);
-		*/
+		String phoneNo = req.getParameter("phoneNo");
+		if (AccountStore.getAccount(userName) == null) {
+			Account acc = new Account(AccountStore.getId(), userName, password, firstName, lastName, email, phoneNo, 1);
+			AccountStore.addAccount(userName, acc);
+			HttpSession s = req.getSession();
+			s.setAttribute("username", acc);
+			req.setAttribute("error_signup_msg", "");
+			req.getRequestDispatcher("/checkout").forward(req, resp);
+		} else {
+			req.setAttribute("error_signup_msg", "The user name " + userName + " is already taken. Please choose another one!" );
+			doGet(req, resp);
+		}
 	}
 }
