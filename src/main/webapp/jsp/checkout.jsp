@@ -13,42 +13,82 @@
 <body>
 
 	<div class="container">
+
 		<div class="row">
 
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h3 class="panel-title">Shipping Address</h3>
+			<div class="col-lg-6">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Shipping Address</h3>
+					</div>
+
+					<div class="panel-body">
+						<div class="form-group">
+							<input class="form-control" type="text" placeholder="Full Name"
+								name="">
+						</div>
+
+						<div class="form-group">
+							<input class="form-control" type="text"
+								placeholder="Street Address" name="">
+						</div>
+						<div class="form-group">
+							<input class="form-control" type="text" placeholder="City"
+								name="">
+						</div>
+						<div class="form-group">
+							<input class="form-control" type="text" placeholder="State"
+								name="">
+						</div>
+
+						<div class="form-group">
+							<input class="form-control" type="text" placeholder="Country"
+								name="">
+						</div>
+
+					</div>
+
 				</div>
+			</div>
 
-				<div class="panel-body">
-					<div class="form-group">
-						<input class="form-control" type="text" placeholder="Full Name"
-							name="">
-					</div>
+			<div class="col-lg-6">
 
-					<div class="form-group">
-						<input class="form-control" type="text"
-							placeholder="Street Address" name="">
-					</div>
-					<div class="form-group">
-						<input class="form-control" type="text" placeholder="City" name="">
-					</div>
-					<div class="form-group">
-						<input class="form-control" type="text" placeholder="State"
-							name="">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Billing Address</h3>
 					</div>
 
-					<div class="form-group">
-						<input class="form-control" type="text" placeholder="Country"
-							name="">
+					<div class="panel-body">
+						<div class="form-group">
+							<input class="form-control" type="text" placeholder="Full Name"
+								name="">
+						</div>
+
+						<div class="form-group">
+							<input class="form-control" type="text"
+								placeholder="Street Address" name="">
+						</div>
+						<div class="form-group">
+							<input class="form-control" type="text" placeholder="City"
+								name="">
+						</div>
+						<div class="form-group">
+							<input class="form-control" type="text" placeholder="State"
+								name="">
+						</div>
+
+						<div class="form-group">
+							<input class="form-control" type="text" placeholder="Country"
+								name="">
+						</div>
+
 					</div>
 
 				</div>
-
 			</div>
 		</div>
 
-		<div class="row">
+		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<div class="row">
@@ -68,44 +108,14 @@
 					</div>
 
 					<div class="form-group">
-						<input class="form-control" type="text"
-							placeholder="Street Address" name="">
-					</div>
-					<div class="form-group">
-						<input class="form-control" type="text" placeholder="City" name="">
-					</div>
-					<div class="form-group">
-						<input class="form-control" type="text" placeholder="State"
-							name="">
-					</div>
-
-					<div class="form-group">
-						<input class="form-control" type="text" placeholder="Country"
-							name="">
+						<input class="form-control" type="number"
+							placeholder="Card Number" name="cardNumber" required>
 					</div>
 
 				</div>
 
 			</div>
 
-		</div>
-
-
-		<div class="row">
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h3 class="panel-title">Billing Address</h3>
-				</div>
-
-				<div class="panel-body">
-					<div>
-						<input class="form-control" type="text" placeholder="Full Name"
-							name="">
-					</div>
-
-				</div>
-
-			</div>
 		</div>
 
 	</div>

@@ -1,6 +1,6 @@
 package com.wap.model;
 
-public class PaymentCart {
+public class Payment {
 	
 	private int id;
 	private String type;
@@ -24,7 +24,7 @@ public class PaymentCart {
 	 * @param cvc
 	 * @param holderName
 	 */
-	public PaymentCart(int id, String type, String cardName, String cardNumber, int expiryMonth, int expiryYear,
+	public Payment(int id, String type, String cardName, String cardNumber, int expiryMonth, int expiryYear,
 			int cvc, Account holderName) {
 		super();
 		this.id = id;

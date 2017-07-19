@@ -8,8 +8,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Product list for Admin</title>
 
-<link href="<c:url value='/css/productListForAdmin.css' />" type="text/css"
-	rel="stylesheet">
+<link href="<c:url value='/css/productListForAdmin.css' />"
+	type="text/css" rel="stylesheet">
 <script type="text/javascript"
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="<c:url value='/js/product_op.js' />"></script>
@@ -17,54 +17,60 @@
 
 <body>
 
-	<div id="wrapper">
-		<div id="header">
-			<h2>Product List</h2>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h1 class="panel-title">Product List</h1>
 		</div>
-	</div>
 
-	<div id="container">
+		<div class="panel-body">
 
-		<div id="content">
+			<div id="container">
 
-			<!-- <button id="addProductButton">Add New Product</button> -->
-			<table id="product_list">
-				<thead>
-					<tr>
-						<th>Product Name</th>
-						<th>Product price</th>
-						<th>Action</th>
-					</tr>
-				</thead>
-				<tbody>
-					<c:forEach items="${products}" var="product">
-						<c:url var="updateLink" value="/product_controller">
-							<!-- This should be sent to the get method -->
-							<c:param name="command" value="UPDATE"></c:param>
-							<c:param name="productId" value="${product.id }"></c:param>
+				<div id="content">
 
-						</c:url>
-						<c:url var="deleteLink" value="product_controller">
-							<!-- This should be sent to the get method -->
-							<c:param name="command" value="DELETE"></c:param>
-							<c:param name="productId" value="${product.id }"></c:param>
+					<!-- <button id="addProductButton">Add New Product</button> -->
+					<table id="product_list">
+						<thead>
+							<tr>
+								<th>Product Name</th>
+								<th>Product price</th>
+								<th>Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach items="${products}" var="product">
+								<c:url var="updateLink" value="/product_controller">
+									<!-- This should be sent to the get method -->
+									<c:param name="command" value="UPDATE"></c:param>
+									<c:param name="productId" value="${product.id }"></c:param>
 
-						</c:url>
-						<tr id="product${product.id }">
-							<td id="name${product.id }">${product.name}</td>
-							<td id="price${product.id }">${product.price}</td>
-							<td>
-								<button class="btnDisplay" data-id="${product.id }">Display</button>
-								<button class="btnDel" data-id="${product.id }">Delete</button>
-							</td>
-						</tr>
-					</c:forEach>
-				</tbody>
-			</table>
+								</c:url>
+								<c:url var="deleteLink" value="product_controller">
+									<!-- This should be sent to the get method -->
+									<c:param name="command" value="DELETE"></c:param>
+									<c:param name="productId" value="${product.id }"></c:param>
+
+								</c:url>
+								<tr id="product${product.id }">
+									<td id="name${product.id }">${product.name}</td>
+									<td id="price${product.id }">${product.price}</td>
+									<td>
+										<button class="btnDisplay" data-id="${product.id }">Display</button>
+										<button class="btnDel" data-id="${product.id }">Delete</button>
+									</td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+				</div>
+
+			</div>
 		</div>
-		<fieldset>
-				<jsp:include page="updateProduct.jsp"></jsp:include>
-		</fieldset>
+
+
+		<div>
+			<jsp:include page="updateProduct.jsp"></jsp:include>
+		</div>
 	</div>
 
 </body>
