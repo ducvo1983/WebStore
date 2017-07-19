@@ -23,7 +23,7 @@
 		     <img alt="shopping_cartImage" src="images/shpp.png">
 		     </div>
 		     <div class="shopping_input">
-		     <label><input class="sizeclass" disabled="disabled" type="text" value="${cart_size}" id="i_number"/>Items</label>
+		     <label><input class="sizeclass"  disabled="disabled" type="text" value="${cart_size}" id="i_number"/>Items</label>
 		     </div>
 		      <div class="shopping_checkout">
 		           <a class="link_button" href="<c:url value ="/cartViewServlet"/>">Checkout</a>
