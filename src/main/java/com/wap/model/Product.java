@@ -7,10 +7,15 @@ public class Product {
     private String name;
     private double price;
     private String image;
-    private String description;
+    private String shortDescription;
+    private String fullDescription;
     private int quantity;
     
     
+    public Product() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
     
 	/**
 	 * @param id
@@ -20,13 +25,14 @@ public class Product {
 	 * @param description
 	 * @param quantity
 	 */
-	public Product(String id, String name, double price, String image, String description, int quantity) {
+	public Product(String id, String name, double price, String image, String shortDescription, String fullDescription, int quantity) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.price = price;
 		this.image = image;
-		this.description = description;
+		this.shortDescription = shortDescription;
+		this.fullDescription = fullDescription;
 		this.quantity = quantity;
 	}
 	/**
@@ -78,18 +84,6 @@ public class Product {
 		this.image = image;
 	}
 	/**
-	 * @return the description
-	 */
-	public String getDescription() {
-		return description;
-	}
-	/**
-	 * @param description the description to set
-	 */
-	public void setDescription(String description) {
-		this.description = description;
-	}
-	/**
 	 * @return the quantity
 	 */
 	public int getQuantity() {
@@ -100,6 +94,30 @@ public class Product {
 	 */
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
+	}
+	/**
+	 * @return the shortDescription
+	 */
+	public String getShortDescription() {
+		return shortDescription;
+	}
+	/**
+	 * @param shortDescription the shortDescription to set
+	 */
+	public void setShortDescription(String shortDescription) {
+		this.shortDescription = shortDescription;
+	}
+	/**
+	 * @return the fullDescription
+	 */
+	public String getFullDescription() {
+		return fullDescription;
+	}
+	/**
+	 * @param fullDescription the fullDescription to set
+	 */
+	public void setFullDescription(String fullDescription) {
+		this.fullDescription = fullDescription;
 	}
     
     

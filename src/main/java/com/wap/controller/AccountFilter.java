@@ -29,7 +29,7 @@ public class AccountFilter implements Filter {
         HttpSession s = req.getSession();
 		if (s == null ||
 			s.getAttribute("username") == null) {
-			resp.sendRedirect("/login.jsp");
+			resp.sendRedirect("/jsp/login.jsp");
 		} else {
 			chain.doFilter(req, resp);
 		}
