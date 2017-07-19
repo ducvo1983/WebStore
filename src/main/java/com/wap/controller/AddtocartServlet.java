@@ -46,10 +46,16 @@ public class AddtocartServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
-		
 		String action = request.getParameter("action");
 		
+		if("ADD".equals(action)){
+			addToCart(request, response);
+		}
+		
+
+	}
+	
+	public void addToCart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		String productiID = request.getParameter("productID");
 		String qty = request.getParameter("quantity");
 		System.out.println("-------Servlet quantity----------"+qty);
@@ -79,8 +85,7 @@ public class AddtocartServlet extends HttpServlet {
 			System.out.println("-------Items size----------"+cart.getNumberOfItems());
 			response.sendRedirect(getServletContext().getContextPath()+"/jsp/catalog.jsp");
 
-		}
-		 
+		} 
 	}
 	
 	

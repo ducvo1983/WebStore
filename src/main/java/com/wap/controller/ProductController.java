@@ -32,6 +32,11 @@ public class ProductController extends HttpServlet {
 		} else if ("DELETE".equals(command)){
 			product = ProductStore.deleteProduct(id);
 			//resp.sendRedirect(getServletContext().getContextPath() + "/products_admin");
+		}else if("PRODUCTDETAIL".equals(command)){
+			//product = ProductStore.getProduct(id);
+			req.setAttribute("product", ProductStore.getProduct(id));
+			req.getRequestDispatcher("/jsp/productdetail.jsp").forward(req, resp);
+			return;
 		}
 		PrintWriter out = resp.getWriter();
 		try{

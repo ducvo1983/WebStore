@@ -45,7 +45,7 @@ function executeAddToChart(id, q) {
 		'data' : {
 			'productID' : id,
 			'quantity' : q,
-			'action' : 'add'
+			'action' : 'ADD'
 		},
 		'success' : successResult,
 		'error' : ajaxFailure
