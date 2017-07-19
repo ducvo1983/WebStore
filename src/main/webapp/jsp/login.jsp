@@ -6,21 +6,21 @@
 <head>
 <title>login</title>
 	<jsp:include page="mainHeads.jsp"></jsp:include>
-	<link href="../css/loginSignUp.css" type="text/css" rel="stylesheet">
+	<link href="<c:url value='/css/loginSignUp.css'/>" type="text/css" rel="stylesheet">
 </head>
 <body>
 	<div id="loginSingUpContainer">
 		<div class="container well">
 			<legend> Sign In! </legend>
-			<form action="" method="post">
+			<form action="login" method="post">
 				<div class="form-group">
 					<label for="username">Username:</label> 
 					<input type="text" class="form-control" id="username" placeholder="Enter email" name="username"
-						value="${cookie.username.value}" required>
+						value="${cookie.username.value}" pattern="(?=\S)(^[a-zA-Z0-9_]+$)" required>
 				</div>
 				<div class="form-group">
 					<label for="password">Password:</label> 
-					<input class="form-control" type="password" id="password" placeholder="Enter password" name="password"
+					<input class="form-control" type="password" id="password" placeholder="Enter password" name="password" pattern="((?=.*[A-Z])(?=.*[a-z])(?=.*\d).{6,})"
 						required>
 				</div>
 				<button class="btn btn-lg btn-primary btn-block" type="submit">Log In</button>
@@ -33,6 +33,7 @@
 				<div>
 					<a href="signup">Sign Up</a>
 				</div>
+				<span style="color:red;text-align:center;">${error_login_msg}</span>
 			</form>
 		</div>
 	</div>

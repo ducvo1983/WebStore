@@ -23,4 +23,20 @@
 		<servlet-name>cartViewServlet</servlet-name>
 		<url-pattern>/cartViewServlet</url-pattern>
 	</servlet-mapping>
+	<servlet>  
+   <servlet-name>products_admin</servlet-name>  
+   <servlet-class>com.wap.controller.ProductListAdminController</servlet-class>  
+  </servlet> 
+  <servlet-mapping>
+	<servlet-name>products_admin</servlet-name>
+	<url-pattern>/products_admin</url-pattern>
+  </servlet-mapping> 
+  <servlet>  
+   <servlet-name>product_controller</servlet-name>  
+   <servlet-class>com.wap.controller.ProductController</servlet-class>  
+  </servlet> 
+  <servlet-mapping>
+	<servlet-name>product_controller</servlet-name>
+	<url-pattern>/product_controller</url-pattern>
+  </servlet-mapping> 
 </web-app>

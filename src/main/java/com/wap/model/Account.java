@@ -3,6 +3,8 @@ package com.wap.model;
 public class Account {
 	
 	private int		userId;
+	private String firstName;
+	private String lastName;
 	private String	username;
 	private String	password;
 	private String	email;
@@ -17,9 +19,11 @@ public class Account {
 	 * @param phoneNumber
 	 * @param active
 	 */
-	public Account(int userId, String userName, String password, String email, String phoneNumber, int active) {
+	public Account(int userId, String userName, String password, String firstName, String lastName, String email, String phoneNumber, int active) {
 		super();
 		this.userId = userId;
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.username = userName;
 		this.password = password;
 		this.email = email;
@@ -97,6 +101,30 @@ public class Account {
 	 */
 	public void setActive(int active) {
 		this.active = active;
+	}
+	/**
+	 * @return the firstName
+	 */
+	public String getFirstName() {
+		return firstName;
+	}
+	/**
+	 * @param firstName the firstName to set
+	 */
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	/**
+	 * @return the lastName
+	 */
+	public String getLastName() {
+		return lastName;
+	}
+	/**
+	 * @param lastName the lastName to set
+	 */
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 	
