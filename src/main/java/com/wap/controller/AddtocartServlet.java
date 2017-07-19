@@ -13,11 +13,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.wap.model.Product;
+import com.wap.model.ShoppingCart;
 import com.wap.repository.ProductStore;
 
 
 
-
+@WebServlet("/addServlet")
 public class AddtocartServlet extends HttpServlet {
 
 	/**
@@ -43,9 +44,43 @@ public class AddtocartServlet extends HttpServlet {
 	}
 
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		super.doPost(req, resp);
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
+		
+		String action = request.getParameter("action");
+		
+		String productiID = request.getParameter("productID");
+		String qty = request.getParameter("quantity");
+		System.out.println("-------Servlet quantity----------"+qty);
+		// Request the Session
+		HttpSession hs = request.getSession();
+		ShoppingCart cart = (ShoppingCart) hs.getAttribute("cart");
+
+		// Checks whether cart is available
+		// If not, then will create a cart object
+		if (cart == null) {
+			cart = new ShoppingCart();
+			hs.setAttribute("cart", cart);
+		}
+
+		int prodID = Integer.parseInt(productiID);
+		int pqty = Integer.parseInt(qty);
+		// Check whether the product id is not null
+		// If not null then add the product to the cart
+
+		if (prodID != 0) {
+			
+			Product p = ProductStore.getProductInDB(prodID);
+
+			cart.add(prodID, p, pqty);
+			
+			hs.setAttribute("cart_size", cart.getNumberOfItems());
+			System.out.println("-------Items size----------"+cart.getNumberOfItems());
+			response.sendRedirect(getServletContext().getContextPath()+"/jsp/catalog.jsp");
+
+		}
+		 
 	}
 	
 	

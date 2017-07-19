@@ -19,20 +19,22 @@ public class ShoppingCart {
 	}
 
 	// Adds items to the shopping cart
-	public synchronized void add(int productID, Product p) {
-		CartItem newItem = new CartItem(p);
-		itemsMap.put(productID, newItem);
-	
+	public synchronized void add(int productID, Product p, int qty) {
+		
+		if(itemsMap.containsKey(productID)){
+			updateQuantity(productID, qty);
+		}else{
+	     CartItem newItem = new CartItem(p,qty);
+		 itemsMap.put(productID, newItem);
+		}
 	}
 
 	// Update items in the shopping cart
-	public synchronized void updateQuantity(int productID, int quantity,
-			Product p) {
-		if (itemsMap.containsKey(productID)) {
-			CartItem scItem = (CartItem) itemsMap
-					.get(productID);
+	public synchronized void updateQuantity(int productID, int quantity){
+		System.out.println("-------Update Called----------"+quantity);
+			CartItem scItem = (CartItem) itemsMap.get(productID);
 			scItem.setQuantity(quantity);
-		}
+		
 	}
 
 	// Remove items from the shopping cart

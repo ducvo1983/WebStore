@@ -24,10 +24,10 @@ public class TldProductViewController extends SimpleTagSupport {
 				   .append("<span class='redcolor'>Price " + product.getPrice() + "$.</span>")
 				   .append("<span class='sizclass'>" + product.getDescription() + "</span><br />")
 				   .append("<span class='sizclass'>Quantity:</span>")
-				   .append("<input class='sizeclass' type='number' min='1' maxlength='100' name='i_number' required='required'/>")
+				   .append("<input class='sizeclass' required='required' type='number' min='1' maxlength='100'  id='i_number_" + product.getId() + "'/>")
 				   .append("</div>")
 				   .append("<div class='bwrapper'>")
-				   .append("<input class='bclass' type='submit' value='Add to Chart' />")
+				   .append("<input class='bclass' type='button' value='Add to Chart' data-id='" + product.getId() + "'/>")
 				   .append("</div>")
 				   .append("</form>")
 				   .append("</div>");

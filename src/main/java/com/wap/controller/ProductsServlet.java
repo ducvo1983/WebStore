@@ -14,6 +14,7 @@ import com.wap.repository.ProductStore;
 public class ProductsServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		System.out.println("-------Post call from JS---------3-");
 		List<Product> products = ProductStore.getAllProducts();
 		req.setAttribute("products", products);
 		req.getRequestDispatcher("/jsp/catalog.jsp").forward(req, resp);
