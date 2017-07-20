@@ -3,9 +3,8 @@ package com.wap.model;
 public class BillingAddress {
 	
 	private int id;
-	private String addrName;
-	private String street1;
-	private String street2;
+	private String fullName;
+	private String street;
 	private String city;
 	private String state;
 	private String country;
@@ -16,21 +15,20 @@ public class BillingAddress {
 	
 	/**
 	 * @param id
-	 * @param addrName
-	 * @param street1
+	 * @param fullName
+	 * @param street
 	 * @param street2
 	 * @param city
 	 * @param state
 	 * @param country
 	 * @param zipcode
 	 */
-	public BillingAddress(int id, String addrName, String street1, String street2, String city, String state,
+	public BillingAddress(int id, String fullName, String street, String city, String state,
 			String country, String zipcode) {
 		super();
 		this.id = id;
-		this.addrName = addrName;
-		this.street1 = street1;
-		this.street2 = street2;
+		this.fullName = fullName;
+		this.street = street;
 		this.city = city;
 		this.state = state;
 		this.country = country;
@@ -49,40 +47,28 @@ public class BillingAddress {
 		this.id = id;
 	}
 	/**
-	 * @return the addrName
+	 * @return the fullName
 	 */
-	public String getAddrName() {
-		return addrName;
+	public String getFullName() {
+		return fullName;
 	}
 	/**
-	 * @param addrName the addrName to set
+	 * @param fullName the fullName to set
 	 */
-	public void setAddrName(String addrName) {
-		this.addrName = addrName;
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
 	}
 	/**
-	 * @return the street1
+	 * @return the street
 	 */
-	public String getStreet1() {
-		return street1;
+	public String getStreet() {
+		return street;
 	}
 	/**
-	 * @param street1 the street1 to set
+	 * @param street the street to set
 	 */
-	public void setStreet1(String street1) {
-		this.street1 = street1;
-	}
-	/**
-	 * @return the street2
-	 */
-	public String getStreet2() {
-		return street2;
-	}
-	/**
-	 * @param street2 the street2 to set
-	 */
-	public void setStreet2(String street2) {
-		this.street2 = street2;
+	public void setStreet(String street) {
+		this.street = street;
 	}
 	/**
 	 * @return the city

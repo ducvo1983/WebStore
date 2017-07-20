@@ -42,7 +42,7 @@ public class LoginController extends HttpServlet {
 			}
 			req.setAttribute("error_login_msg", "");
 			if (u.getUserId() != 0) {
-				req.getRequestDispatcher(getServletContext().getContextPath() + "/checkout").forward(req, resp);
+				req.getRequestDispatcher("/checkout").forward(req, resp);
 			} else {
 				resp.sendRedirect(getServletContext().getContextPath() + "/products_admin");
 			}

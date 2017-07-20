@@ -8,10 +8,17 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebFilter;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+@WebFilter(
+filterName = "webstoreFilter",
+urlPatterns = { "/checkout" },
+servletNames = { "checkout" }
+)
 public class AccountFilter implements Filter {
 
 	@Override
@@ -29,7 +36,11 @@ public class AccountFilter implements Filter {
         HttpSession s = req.getSession();
 		if (s == null ||
 			s.getAttribute("username") == null) {
-			resp.sendRedirect("/jsp/login.jsp");
+			if (!"CHECKQUANTITY".equals(req.getParameter("action"))) {
+				resp.sendRedirect(req.getServletContext().getContextPath() + "/jsp/login.jsp");
+			} else {
+				chain.doFilter(req, resp);
+			}
 		} else {
 			chain.doFilter(req, resp);
 		}

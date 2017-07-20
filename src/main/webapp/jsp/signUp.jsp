@@ -13,7 +13,7 @@
 	<div id="loginSingUpContainer">
 		<div class="container well">
 			<legend> Sign Up! </legend>
-			<form action="signup" method="post">
+			<form action="<c:url value='/signup'/>" method="post">
 				<div class="form-group">
 					<label for="firstName">First Name:</label> 
 					<input type="text" class="form-control" id="firstName" placeholder="First Name" name="firstName" required>

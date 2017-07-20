@@ -39,14 +39,19 @@ public class CartItem {
 	 * @param quantity the quantity to set
 	 */
 	public void setQuantity(int quantity) {
-		this.quantity += quantity;
+		this.quantity = quantity;
 	}
 	
+	public void incrQuantity(int quantity) {
+		this.quantity += quantity;
+	}
 	
 	public double getTotalPrice(){
 		
 		return this.getQuantity() * this.getProduct().getPrice();
 	}
 	
-	
+	public boolean satisfyQuantity() {
+		return quantity <= product.getQuantity();
+	}
 }

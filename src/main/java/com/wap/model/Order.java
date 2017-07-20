@@ -1,30 +1,79 @@
 package com.wap.model;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class Order {
 	     
 	    private int orderId;
 	    private LocalDate orderDate;
-	    private int orderNum;
 	    private double amount;
-	    
-	    
-	    
-	    
-	    
+		private PaymentCart cart;
+		private ShippingAddress shpAdress;
+		private BillingAddress billAddress;
+	    private List<CartItem> items;
+		/**
+		 * @return the cart
+		 */
+		public PaymentCart getCart() {
+			return cart;
+		}
+		/**
+		 * @param cart the cart to set
+		 */
+		public void setCart(PaymentCart cart) {
+			this.cart = cart;
+		}
+		/**
+		 * @return the shpAdress
+		 */
+		public ShippingAddress getShpAdress() {
+			return shpAdress;
+		}
+		/**
+		 * @param shpAdress the shpAdress to set
+		 */
+		public void setShpAdress(ShippingAddress shpAdress) {
+			this.shpAdress = shpAdress;
+		}
+		/**
+		 * @return the billAddress
+		 */
+		public BillingAddress getBillAddress() {
+			return billAddress;
+		}
+		/**
+		 * @param billAddress the billAddress to set
+		 */
+		public void setBillAddress(BillingAddress billAddress) {
+			this.billAddress = billAddress;
+		}
+		/**
+		 * @return the items
+		 */
+		public List<CartItem> getItems() {
+			return items;
+		}
+		/**
+		 * @param items the items to set
+		 */
+		public void setItems(List<CartItem> items) {
+			this.items = items;
+		}
 		/**
 		 * @param orderId
 		 * @param orderDate
-		 * @param orderNum
 		 * @param amount
 		 */
-		public Order(int orderId, LocalDate orderDate, int orderNum, double amount) {
+		public Order(int orderId, LocalDate orderDate, double amount, PaymentCart cart, ShippingAddress shpAdress, BillingAddress billAddress, List<CartItem> items) {
 			super();
 			this.orderId = orderId;
 			this.orderDate = orderDate;
-			this.orderNum = orderNum;
 			this.amount = amount;
+			this.cart = cart;
+			this.shpAdress = shpAdress;
+			this.billAddress = billAddress;
+			this.items = items;
 		}
 		/**
 		 * @return the orderId
@@ -49,18 +98,6 @@ public class Order {
 		 */
 		public void setOrderDate(LocalDate orderDate) {
 			this.orderDate = orderDate;
-		}
-		/**
-		 * @return the orderNum
-		 */
-		public int getOrderNum() {
-			return orderNum;
-		}
-		/**
-		 * @param orderNum the orderNum to set
-		 */
-		public void setOrderNum(int orderNum) {
-			this.orderNum = orderNum;
 		}
 		/**
 		 * @return the amount

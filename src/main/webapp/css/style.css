@@ -77,7 +77,11 @@ body {
 	font-size: 12px;
 	color: black;;
 }
-
+.sizeclassn{
+	font-size: 12px;
+	color: black;
+	width: 70px;
+}
 .header_text {
 	float: left;
 }
@@ -89,7 +93,7 @@ body {
 	height: 100%;
 }
 
-h1 {
+.gtitle {
 	color: #ffffff;
 	font-family: 'Raleway', sans-serif;
 	font-size: 30px;
@@ -102,11 +106,11 @@ h1 {
 	text-transform: uppercase;
 }
 
-h2 {
+.gtitle1 {
 	color:#558C89;
 	font-family: 'Raleway', sans-serif;
 	font-size: 30px;
-	font-weight: 800; text-shadow : 2px 2px 0px #eee, 4px 3px 0px #707070;
+	font-weight: 500; text-shadow : 2px 2px 0px #eee, 4px 3px 0px #707070;
 	font-style: italic;
 	line-height: 72px;
 	margin-left: 150px;
@@ -177,7 +181,7 @@ h2 {
 .link_button {
 	color: white;
 	background: #7fcad0;
-	padding: 10px 20px;
+	padding: 10px 10px;
 	display: block;
 	margin: 10px 0;
 	text-align: center;
@@ -217,6 +221,21 @@ h2 {
 	display: flex;
 	flex-direction: column;
 }
+
+
+
+.shopping-cart_order {
+	width: 100%;
+	height: 250px;
+	margin: 10px auto;
+	background: #FFFFFF;
+	box-shadow: 1px 2px 3px 0px rgba(0, 0, 0, 0.10);
+	border-radius: 6px;
+	display: flex;
+	flex-direction: column;
+	overflow: auto;
+}
+
 
 .item {
 	padding: 20px 30px;
@@ -300,7 +319,7 @@ background: url ("delete-icn.svg ") no-repeat center ;
 	font-weight: 300;
 }
 
-button[class*=btn] {
+button[class*=btn1] {
 	width: 30px;
 	height: 30px;
 	background-color: #E1E8EE;
@@ -354,13 +373,38 @@ button:focus, input:focus {
 	}
 }
 
+.order_price {
+	clear: right;
+	float: right;
+	display: inline-block;
+}
+
+.order_message{
+	clear: right;
+	float: left;
+	display: inline-block;
+}
+
 .cart_image {
 	width: 72px;
 	height: 72px;
 }
 
-.btn {
+.error_msg {
+	color: red;
+}
+
+.btn1 {
 	
+}
+
+.col-lg-6{
+	margin-top: 20px!important;
+	
+}
+
+.block1{
+	margin-top: 45px!important;
 }
 
 .shopping_cartview {

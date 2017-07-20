@@ -13,8 +13,8 @@ public class ProductStore {
 	volatile static Map<Integer,Product> database = new ConcurrentHashMap<>();
 	
 	static {
-		database.put(genId(), new Product(String.valueOf(genId()),"men shoe",25,"shoem1","good shoes", "", 100));
-		database.put(genId(), new Product(String.valueOf(genId()),"men shoe",30,"shoem2","good shoes", "", 100));
+		database.put(genId(), new Product(String.valueOf(genId()),"men shoe",25,"shoem1","good shoes", "", 2));
+		database.put(genId(), new Product(String.valueOf(genId()),"men shoe",30,"shoem2","good shoes", "", 2));
 		database.put(genId(), new Product(String.valueOf(genId()),"men shoe",35,"shoem3","good shoes", "",100));
 		database.put(genId(), new Product(String.valueOf(genId()),"men shoe",40,"shoem4","good shoes", "",100));
 		database.put(genId(), new Product(String.valueOf(genId()),"women shoe",25,"shoef1","good shoes", "",100));

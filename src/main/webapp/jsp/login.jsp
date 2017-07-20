@@ -12,7 +12,7 @@
 	<div id="loginSingUpContainer">
 		<div class="container well">
 			<legend> Sign In! </legend>
-			<form action="login" method="post">
+			<form action="<c:url value='/login' />" method="post">
 				<div class="form-group">
 					<label for="username">Username:</label> 
 					<input type="text" class="form-control" id="username" placeholder="Enter email" name="username"
@@ -31,7 +31,7 @@
 					</label>
 				</div>
 				<div>
-					<a href="signup">Sign Up</a>
+					<a href="<c:url value='/jsp/signUp.jsp' />">Sign Up</a>
 				</div>
 				<span style="color:red;text-align:center;">${error_login_msg}</span>
 			</form>
