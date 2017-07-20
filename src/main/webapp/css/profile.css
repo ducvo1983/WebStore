@@ -1,0 +1,24 @@
+
+#loginSingUpContainer {
+	margin: auto;
+	margin-top: 3%;
+	border: 2px solid gray;
+	border-radius: 10px;
+	width: 80%;
+}
+
+#profileContainer {
+	border-radius: 10px;
+}
+
+.container {
+	width: 100%;
+}
+
+.well {
+	margin-bottom: 0;
+}
+
+#dataContainer {
+	width: 80%;
+}

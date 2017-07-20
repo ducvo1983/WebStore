@@ -7,7 +7,7 @@
 <title>login</title>
 	<jsp:include page="mainHeads.jsp"></jsp:include>
 	
-	<link href="<c:url  value='css/loginSignUp.css'/>" type="text/css" rel="stylesheet">
+	<link href="<c:url  value='/css/loginSignUp.css'/>" type="text/css" rel="stylesheet">
 </head>
 <body>
 	<div id="loginSingUpContainer">

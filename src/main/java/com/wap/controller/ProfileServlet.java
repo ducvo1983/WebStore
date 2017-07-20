@@ -9,11 +9,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.wap.model.Account;
 import com.wap.model.Order;
+import com.wap.repository.AccountStore;
 import com.wap.repository.OrderStore;
 
-@WebServlet("/orders")
-public class OrderServlet extends HttpServlet{
+
+public class ProfileServlet extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
 	
@@ -25,8 +27,12 @@ public class OrderServlet extends HttpServlet{
 		
 		int userId = Integer.parseInt(req.getParameter("userId"));
 		List<Order> orders = OrderStore.getOrders(userId);
-		
-		req.getRequestDispatcher("orderList.jsp").forward(req, resp);
-		
+		//TODO: I have to get the user information
+		//when the user click profile, the client should send userName parameter. 
+		String userName = req.getParameter("userName");
+		Account account = AccountStore.getAccount(userName);
+		req.setAttribute("account", account);
+		req.setAttribute("orders", orders);
+		req.getRequestDispatcher("profile.jsp").forward(req, resp);
 	}
 }
