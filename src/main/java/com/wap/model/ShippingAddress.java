@@ -1,6 +1,6 @@
 package com.wap.model;
 
-public class ShippingAddress extends Address{
+public class ShippingAddress{
 	
 	private int id;
 	private String fullName;

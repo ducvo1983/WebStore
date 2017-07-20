@@ -34,8 +34,10 @@ public class ProfileServlet extends HttpServlet{
 		//when the user click profile, the client should send userName parameter. 
 		//String userName = req.getParameter("userName");
 		//Account account = AccountStore.getAccount(userName);
-		//req.setAttribute("account", account);
+		req.setAttribute("currentUser", account);
 		req.setAttribute("orders", orders);
+		s.setAttribute("currentUser", account);
+		s.setAttribute("orders", orders);
 		req.getRequestDispatcher("/jsp/profile.jsp").forward(req, resp);
 	}
 	

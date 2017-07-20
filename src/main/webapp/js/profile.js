@@ -1,7 +1,7 @@
 $(function() {
 
 	//document.getElementById("dataContainer").innerHTML='<object type="text/html" data="profileInformation.jsp" ></object>';
-	$("#dataContainer").load("profileInformation.jsp");
+	$("#dataContainer").load("jsp/profileInformation.jsp");
 	//$("#dataContainer").load("orderList.jsp");
 	
 	$("li").click(function() {
@@ -11,10 +11,10 @@ $(function() {
 	      $(this).addClass("active");
 	      
 	      if(this.id === "myProfile") {
-	    	  $("#dataContainer").load("profileInformation.jsp");
+	    	  $("#dataContainer").load("jsp/profileInformation.jsp");
 	      }
 	      else {
-	    	  $("#dataContainer").load("orderList.jsp");
+	    	  $("#dataContainer").load("jsp/orderList.jsp");
 	      }
 	   });
 	

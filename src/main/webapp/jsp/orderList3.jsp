@@ -14,20 +14,19 @@
 
 	<div id="orderListContainer">
 		<div class="container">
-			<legend> Order List </legend>
-			
 			<div>
 				<div>
-					<c:forEach items="${orders}" var = "order">
-							<div>
-								<h1>"${order.id }"</h1>
-								<h2>"${order.orderDate }"</h2>
-							</div>
+					<c:forEach items="${orders}" var="order">
+						<div>
+							<h1>Order Id: ${order.orderId }</h1>
+							<h2>Order Date: ${order.orderDate }</h2>
+							<h2>Total Price: ${order.amount }</h2>
+						</div>
 						<c:forEach items="${order.items}" var="cartItem">
 							<div>
-								<p> "${cartItem.quantity}" </p>
-								<p> "${cartItem.product.quantity}" </p>
-								
+								<p>Ordered Quantity: ${cartItem.quantity}</p>
+								<p>Product Name: ${cartItem.product.name}</p>
+
 							</div>
 							<hr>
 						</c:forEach>

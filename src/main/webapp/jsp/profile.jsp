@@ -25,6 +25,7 @@
 			<ul class="nav navbar-nav">
 				<li id="myProfile" class="active"><a href="#">Profile</a></li>
 				<li id="myOrders" ><a href="#">My Orders</a></li>
+				<li id="myOrders" ><a href="<c:url value='/products' />" >Home Page</a></li>
 			</ul>
 		</div>
 		<!-- /.navbar-collapse -->

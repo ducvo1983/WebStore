@@ -1,5 +1,5 @@
 package com.wap.model;
-public class BillingAddress extends Address{
+public class BillingAddress{
 	
 	private int id;
 	private String fullName;
