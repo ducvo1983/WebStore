@@ -52,7 +52,7 @@
 						type="password" id="password" placeholder="Enter password"
 						pattern="((?=.*[A-Z])(?=.*[a-z])(?=.*\d).{6,})" name="password">
 				</div>
-				<button class="btn btn-lg btn-primary btn-block" type="submit">Update</button>
+				<button id="updateProfile" class="btn btn-lg btn-primary btn-block" type="submit">Update</button>
 			</form>
 		</div>
 	</div>
