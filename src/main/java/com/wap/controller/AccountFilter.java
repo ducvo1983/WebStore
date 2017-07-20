@@ -39,7 +39,8 @@ public class AccountFilter implements Filter {
 		if (s == null ||
 			s.getAttribute("username") == null) {
 			String action = req.getParameter("action");
-			boolean isValid = ("PRODUCTDETAIL".equals(action)) ||
+			String command = req.getParameter("command");
+			boolean isValid = ("PRODUCTDETAIL".equals(command)) ||
 					("CHECKQUANTITY".equals(action));
 			if (!isValid) {
 				if ("CHECKOUT".equals(action)){

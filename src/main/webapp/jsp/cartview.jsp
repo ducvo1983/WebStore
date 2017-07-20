@@ -62,7 +62,7 @@
 					</div>
 
 					<div class="description">
-						<span>Common Projects</span> <span>Bball High</span> <span>White</span>
+						<span>${cartItem.product.shortDescription }</span>
 					</div>
 
 					<div class="quantity">

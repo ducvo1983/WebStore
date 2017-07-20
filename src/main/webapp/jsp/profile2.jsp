@@ -11,17 +11,37 @@
 
 <link href="<c:url  value='/css/profile.css'/>" type="text/css"
 	rel="stylesheet">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
 </head>
 <body>
 
-	<div id="loginSingUpContainer">
+	<nav class="navbar navbar-default">
+	<div class="container">
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse"
+			id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li id="myProfile" class="active"><a href="#">Profile</a></li>
+				<li id="myOrders" ><a href="#">My Orders</a></li>
+			</ul>
+		</div>
+		<!-- /.navbar-collapse -->
+	</div>
+	<!-- /.container-fluid --> </nav>
+
+
+	<div id="dataContainer">
+	
+		<div id="loginSingUpContainer">
 		<div id="profileContainer" class="container well">
 			<legend> My Profile Information </legend>
 			<form action="update" method="post">
 				<div class="form-group">
 					<label for="firstName">First Name:</label> <input type="text"
 						class="form-control" id="firstName" placeholder="First Name"
-						name="firstName" required value="${currentUser.firstName }">
+						name="firstName" required value="${account.firstName }">
 				</div>
 				<div class="form-group">
 					<label for="lastName">Last Name:</label> <input type="text"
@@ -52,9 +72,10 @@
 						type="password" id="password" placeholder="Enter password"
 						pattern="((?=.*[A-Z])(?=.*[a-z])(?=.*\d).{6,})" name="password">
 				</div>
-				<button id="updateProfile" class="btn btn-lg btn-primary btn-block" type="submit">Update</button>
+				<button class="btn btn-lg btn-primary btn-block" type="submit">Update</button>
 			</form>
 		</div>
+	</div>
 	</div>
 </body>
 </html>

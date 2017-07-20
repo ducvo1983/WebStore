@@ -17,5 +17,4 @@ $(function() {
 	    	  $("#dataContainer").load("jsp/orderList.jsp");
 	      }
 	   });
-	
 })
