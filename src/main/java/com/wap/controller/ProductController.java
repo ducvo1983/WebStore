@@ -13,7 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.wap.model.CartItem;
 import com.wap.model.Product;
+import com.wap.model.ShoppingCart;
 import com.wap.repository.ProductStore;
 
 
@@ -32,7 +34,22 @@ public class ProductController extends HttpServlet {
 		} else if ("DELETE".equals(command)){
 			product = ProductStore.deleteProduct(id);
 			//resp.sendRedirect(getServletContext().getContextPath() + "/products_admin");
+		}else if("PRODUCTDETAIL".equals(command)){
+			//product = ProductStore.getProduct(id);
+			req.setAttribute("product", ProductStore.getProduct(id));
+			ShoppingCart cart = (ShoppingCart)(req.getSession().getAttribute("cart"));
+			int quantity = 0;
+			if (cart != null) {
+				CartItem cartItem = cart.getCartItem(Integer.parseInt(id));
+				if (cartItem != null) {
+					quantity = cartItem.getQuantity();
+				}
+			}
+			req.setAttribute("cartItemQuantity", quantity);
+			req.getRequestDispatcher("/jsp/productDetails.jsp").forward(req, resp);
+			return;
 		}
+		
 		PrintWriter out = resp.getWriter();
 		try{
 			out.print(mapper.writeValueAsString(product));

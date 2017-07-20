@@ -12,13 +12,12 @@ import javax.servlet.http.HttpSession;
 import com.wap.model.Account;
 import com.wap.repository.AccountStore;
 
-@WebServlet("/signup")
 public class RegistrationServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//super.doGet(req, resp);
-		req.getRequestDispatcher("/jsp/signUp.jsp").forward(req, resp);
+		req.getRequestDispatcher(getServletContext().getContextPath() + "/jsp/signUp.jsp").forward(req, resp);
 	}
 	
 	@Override
@@ -36,6 +35,7 @@ public class RegistrationServlet extends HttpServlet {
 			HttpSession s = req.getSession();
 			s.setAttribute("username", acc);
 			req.setAttribute("error_signup_msg", "");
+			
 			req.getRequestDispatcher("/checkout").forward(req, resp);
 		} else {
 			req.setAttribute("error_signup_msg", "The user name " + userName + " is already taken. Please choose another one!" );

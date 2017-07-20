@@ -1,5 +1,7 @@
 package com.wap.repository;
 
+<<<<<<< HEAD
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -39,3 +41,25 @@ public class OrderStore {
 		}
 	}
 
+=======
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
+import com.wap.model.Order;
+import com.wap.model.Product;
+
+public class OrderStore {
+	
+	
+	//this is just dummy data: 
+	volatile static Map<Integer,Product> database = new ConcurrentHashMap<>();
+	public static List<Order> getOrders(int userId) {
+		//get all orders for the user whose id is userId. 
+		
+		
+		return null;
+	}
+
+}
+>>>>>>> branch 'master' of https://github.com/ducvo1983/WebStore.git

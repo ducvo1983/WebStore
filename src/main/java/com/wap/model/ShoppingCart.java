@@ -19,10 +19,10 @@ public class ShoppingCart {
 	}
 
 	// Adds items to the shopping cart
-	public synchronized void add(int productID, Product p, int qty) {
+	public synchronized void add(int productID, Product p, int qty, boolean increment) {
 		
 		if(itemsMap.containsKey(productID)){
-			updateQuantity(productID, qty);
+			updateQuantity(productID, qty, increment);
 		}else{
 	     CartItem newItem = new CartItem(p,qty);
 		 itemsMap.put(productID, newItem);
@@ -30,10 +30,14 @@ public class ShoppingCart {
 	}
 
 	// Update items in the shopping cart
-	public synchronized void updateQuantity(int productID, int quantity){
+	public synchronized void updateQuantity(int productID, int quantity, boolean increment){
 		System.out.println("-------Update Called----------"+quantity);
 			CartItem scItem = (CartItem) itemsMap.get(productID);
-			scItem.setQuantity(quantity);
+			if (!increment) {
+				scItem.setQuantity(quantity);
+			} else {
+				scItem.incrQuantity(quantity);
+			}
 		
 	}
 
@@ -89,6 +93,9 @@ public class ShoppingCart {
 		return amount;
 	}
 
+	public synchronized CartItem getCartItem(int key) {
+		return itemsMap.get(key);
+	}
 	// Checks whether a particular product
 	// is already present in the cart
 	public static boolean checkProductInCart(PageContext pageContext) {
@@ -100,5 +107,16 @@ public class ShoppingCart {
 			return true;
 		}
 		return false;
-}
+	}
+	
+	public void finalizeCart() {
+		Iterator<CartItem> scItemIterator = getItems().iterator();
+
+		while (scItemIterator.hasNext()) {
+			CartItem item = scItemIterator.next();
+			Product p = item.getProduct();
+			int pQuantity = p.getQuantity();
+			p.setQuantity(pQuantity - item.getQuantity());
+		}
+	}
 }

@@ -4,20 +4,55 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
 	version="3.1">
 	<display-name>webstore</display-name>
-	<welcome-file-list>
-		<welcome-file>/jsp/login.jsp</welcome-file>
-	</welcome-file-list>
-	<!-- <servlet> <servlet-name>products</servlet-name> <servlet-class>com.wap.controller.ProductsServlet</servlet-class> 
-		<load-on-startup>1</load-on-startup> </servlet> <servlet-mapping> <servlet-name>products</servlet-name> 
-		<url-pattern>/products</url-pattern> <url-pattern></url-pattern> </servlet-mapping> 
-		<servlet> <servlet-name>cartViewServlet</servlet-name> <servlet-class>com.wap.controller.CartViewServlet</servlet-class> 
-		<load-on-startup>1</load-on-startup> </servlet> <servlet-mapping> <servlet-name>cartViewServlet</servlet-name> 
-		<url-pattern>/cartViewServlet</url-pattern> </servlet-mapping> -->
-		<servlet> 
-		<servlet-name>products_admin</servlet-name> <servlet-class>com.wap.controller.ProductListAdminController</servlet-class> 
-		</servlet> <servlet-mapping> <servlet-name>products_admin</servlet-name> 
-		<url-pattern>/products_admin</url-pattern> </servlet-mapping> <servlet> <servlet-name>product_controller</servlet-name> 
-		<servlet-class>com.wap.controller.ProductController</servlet-class> </servlet> 
-		<servlet-mapping> <servlet-name>product_controller</servlet-name> <url-pattern>/product_controller</url-pattern> 
-		</servlet-mapping>
+	<servlet>
+		<servlet-name>products</servlet-name>
+		<servlet-class>com.wap.controller.ProductsServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>products</servlet-name>
+		<url-pattern>/products</url-pattern>
+		<url-pattern></url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>cartViewServlet</servlet-name>
+		<servlet-class>com.wap.controller.CartViewServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>cartViewServlet</servlet-name>
+		<url-pattern>/cartViewServlet</url-pattern>
+	</servlet-mapping>
+	<servlet>  
+   <servlet-name>products_admin</servlet-name>  
+   <servlet-class>com.wap.controller.ProductListAdminController</servlet-class>  
+  </servlet> 
+  <servlet-mapping>
+	<servlet-name>products_admin</servlet-name>
+	<url-pattern>/products_admin</url-pattern>
+  </servlet-mapping> 
+  <servlet>  
+   <servlet-name>product_controller</servlet-name>  
+   <servlet-class>com.wap.controller.ProductController</servlet-class>  
+  </servlet> 
+  <servlet-mapping>
+	<servlet-name>product_controller</servlet-name>
+	<url-pattern>/product_controller</url-pattern>
+  </servlet-mapping> 
+  <servlet>  
+   <servlet-name>signup</servlet-name>  
+   <servlet-class>com.wap.controller.RegistrationServlet</servlet-class>  
+  </servlet> 
+  <servlet-mapping>
+	<servlet-name>signup</servlet-name>
+	<url-pattern>/signup</url-pattern>
+  </servlet-mapping> 
+  <servlet>  
+   <servlet-name>order</servlet-name>  
+   <servlet-class>com.wap.controller.OrderController</servlet-class>  
+  </servlet> 
+  <servlet-mapping>
+	<servlet-name>order</servlet-name>
+	<url-pattern>/order</url-pattern>
+  </servlet-mapping> 
 </web-app>

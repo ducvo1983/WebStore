@@ -4,7 +4,33 @@
 $(function() {
 	updateShoppingCard();
 	UpdateQuantityAndPrice();
+	updateShoppingCard2();
+	$('#checkoutbutton').click(checkoutAction);
 });
+
+function checkoutAction() {
+	$.get('checkout', {
+		action: "CHECKQUANTITY"
+	}).done(checkResult)
+	.fail(ajaxFailure);
+	return false;
+}
+
+function checkResult(data) {
+	data = JSON.parse(data);
+	var valid = true;
+	//console.log(data);
+	$.each(data, function( key, value ) {
+	  //alert( key + ": " + value );
+	  valid = false;
+	  $('#error_message' + key).text("Just remaining " + value + " product(s) in the inventory");
+	});
+	console.log(data);
+	if (valid) {
+		//var context_path = "<%=request.getContextPath()%>";
+		window.location.replace("/webstore/checkout");
+	}
+}
 
 function updateShoppingCard() {
 
@@ -23,6 +49,36 @@ function updateShoppingCard() {
 			
 			}
 			$("#i_number_" + id).val("");
+			c = parseInt(q)+c;
+		    
+			$("#i_number").val(c);
+			executeAddToChart(id, "+" + q);
+		
+			
+		}
+
+	});
+
+}
+
+
+function updateShoppingCard2() {
+
+	$('#bpdetail').click(function() {
+		var q = $("#pdquantity").val();
+		var id = $("#hpid").val();
+		if (q === undefined || q === "") {
+			alert("Please, specify a quantity");
+		} else {
+			var c = $("#i_number").val();
+			//alert("---c value is---"+q);
+			if (c === undefined || c === "") {
+				c = 0;
+			} else {
+				c = parseInt($("#i_number").val());
+			
+			}
+			//$("#pdquantity").val("");
 			c = parseInt(q)+c;
 		    
 			$("#i_number").val(c);
@@ -45,7 +101,7 @@ function executeAddToChart(id, q) {
 		'data' : {
 			'productID' : id,
 			'quantity' : q,
-			'action' : 'add'
+			'action' : 'ADD'
 		},
 		'success' : successResult,
 		'error' : ajaxFailure
@@ -53,11 +109,9 @@ function executeAddToChart(id, q) {
 
 }
 
-
 function UpdateQuantityAndPrice(){
-	var price_changes = 0;
-	  // alert("---called----");
-	$('.quantity').on('click', '.btn', function(e) {
+	// alert("---called----");
+	$('.quantity').on('click', '.btn1', function(e) {
 		var toltal_price = parseInt($('#totalamount').text());
 		e.preventDefault();
 		var $this = $(this),
@@ -84,7 +138,7 @@ function UpdateQuantityAndPrice(){
 		$input.val(value);
 		$('#itemprice_'+p_id).text(totalprice);
 		$('#totalamount').text(toltal_price);
-		
+		executeAddToChart(p_id, value);
 		});
 	
 
@@ -92,7 +146,6 @@ function UpdateQuantityAndPrice(){
 
 
 function successResult(resultData) {
-	
 }
 
 function ajaxFailure(xhr, status, exception) {

@@ -29,7 +29,7 @@ $(function(){
 		.addClass('btnDel')
 		.data("id", data.id)
 		.text("Delete");
-		btnDel.click(getProduct);
+		btnDel.click(deleteProduct);
 		btnDel.appendTo(td3);
 		var tr = $('<tr>').append(td1).append(td2).append(td3);
 		$('#product_list>tbody').append(tr);

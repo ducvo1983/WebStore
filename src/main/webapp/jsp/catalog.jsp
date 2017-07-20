@@ -7,15 +7,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>webstore</title>
-<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="<c:url value ='/css/style.css'/>" />
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script type="text/javascript" src="<c:url value='/js/webstore.js' />"></script>
+<script type="text/javascript" src="<c:url value='/js/webstore.js'/>"></script>
 </head>
 <body>
 	<div id="wrapper">
 		<div class="header_div">
 		<div class="header_text">
-		 <h1>Cstech WebStore</h1>
+		 <h1 class="gtitle">Cstech WebStore</h1>
 		</div>
 		<div class="menu">
 		  <div class="shoppingcard">
@@ -26,7 +26,7 @@
 		     <label><input class="sizeclass"  disabled="disabled" type="text" value="${cart_size}" id="i_number"/>Items</label>
 		     </div>
 		      <div class="shopping_checkout">
-		           <a class="link_button" href="<c:url value ="/cartViewServlet"/>">Checkout</a>
+		           <a class="link_button" href="<c:url value ="/cartViewServlet"/>">view cart</a>
 		     </div>
 		  </div>
 		  </div>

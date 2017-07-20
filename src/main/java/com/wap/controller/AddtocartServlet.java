@@ -46,10 +46,16 @@ public class AddtocartServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
-		
 		String action = request.getParameter("action");
 		
+		if("ADD".equals(action)){
+			addToCart(request, response);
+		}
+		
+
+	}
+	
+	public void addToCart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		String productiID = request.getParameter("productID");
 		String qty = request.getParameter("quantity");
 		System.out.println("-------Servlet quantity----------"+qty);
@@ -64,8 +70,9 @@ public class AddtocartServlet extends HttpServlet {
 			hs.setAttribute("cart", cart);
 		}
 
+		boolean increment = qty.charAt(0) == '+';
 		int prodID = Integer.parseInt(productiID);
-		int pqty = Integer.parseInt(qty);
+		int pqty = !increment ? Integer.parseInt(qty) : Integer.parseInt(qty.substring(1));
 		// Check whether the product id is not null
 		// If not null then add the product to the cart
 
@@ -73,14 +80,13 @@ public class AddtocartServlet extends HttpServlet {
 			
 			Product p = ProductStore.getProductInDB(prodID);
 
-			cart.add(prodID, p, pqty);
+			cart.add(prodID, p, pqty, increment);
 			
 			hs.setAttribute("cart_size", cart.getNumberOfItems());
 			System.out.println("-------Items size----------"+cart.getNumberOfItems());
-			response.sendRedirect(getServletContext().getContextPath()+"/jsp/catalog.jsp");
+			//response.sendRedirect(getServletContext().getContextPath()+"/jsp/catalog.jsp");
 
-		}
-		 
+		} 
 	}
 	
 	

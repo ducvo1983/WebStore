@@ -1,9 +1,15 @@
 package com.wap.model;
 
+<<<<<<< HEAD
 import java.time.LocalDate;
+=======
+import java.util.Date;
+>>>>>>> branch 'master' of https://github.com/ducvo1983/WebStore.git
 import java.util.List;
 
 public class Order {
+<<<<<<< HEAD
+	     
 	    private int orderId;
 	    private LocalDate orderDate;
 	    private double amount;
@@ -110,5 +116,88 @@ public class Order {
 		public void setAmount(double amount) {
 			this.amount = amount;
 		}
+	    
+	    
+=======
+
+	private int id;
+	private Date orderDate;
+	private Date shippingDate;
+>>>>>>> branch 'master' of https://github.com/ducvo1983/WebStore.git
+	
+	//This field should be calculated when you create an order.
+	private double orderTotal;
+	
+	private List<CartItem> cartItems;
+	
+	private ShippingAddress shippingAddress;
+	
+	private Payment payment;
+	
+	private Account account;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public Date getOrderDate() {
+		return orderDate;
+	}
+
+	public void setOrderDate(Date orderDate) {
+		this.orderDate = orderDate;
+	}
+
+	public Date getShippingDate() {
+		return shippingDate;
+	}
+
+	public void setShippingDate(Date shippingDate) {
+		this.shippingDate = shippingDate;
+	}
+
+	public double getOrderTotal() {
+		return orderTotal;
+	}
+
+	public void setOrderTotal(double orderTotal) {
+		this.orderTotal = orderTotal;
+	}
+
+	public List<CartItem> getCartItems() {
+		return cartItems;
+	}
+
+	public void setCartItems(List<CartItem> cartItems) {
+		this.cartItems = cartItems;
+	}
+
+	public ShippingAddress getShippingAddress() {
+		return shippingAddress;
+	}
+
+	public void setShippingAddress(ShippingAddress shippingAddress) {
+		this.shippingAddress = shippingAddress;
+	}
+
+	public Payment getPayment() {
+		return payment;
+	}
+
+	public void setPayment(Payment payment) {
+		this.payment = payment;
+	}
+
+	public Account getAccount() {
+		return account;
+	}
+
+	public void setAccount(Account account) {
+		this.account = account;
+	}
 
 }
