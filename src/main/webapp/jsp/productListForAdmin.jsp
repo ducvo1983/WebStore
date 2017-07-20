@@ -39,18 +39,6 @@
 						</thead>
 						<tbody>
 							<c:forEach items="${products}" var="product">
-								<c:url var="updateLink" value="/product_controller">
-									<!-- This should be sent to the get method -->
-									<c:param name="command" value="UPDATE"></c:param>
-									<c:param name="productId" value="${product.id }"></c:param>
-
-								</c:url>
-								<c:url var="deleteLink" value="product_controller">
-									<!-- This should be sent to the get method -->
-									<c:param name="command" value="DELETE"></c:param>
-									<c:param name="productId" value="${product.id }"></c:param>
-
-								</c:url>
 								<tr id="product${product.id }">
 									<td id="name${product.id }">${product.name}</td>
 									<td id="price${product.id }">${product.price}</td>

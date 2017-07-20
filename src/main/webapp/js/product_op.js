@@ -2,8 +2,7 @@ $(function(){
 	$('#btnAdd').click(addProduct);
 	$('#btnUpdate').click(updateProduct);
 	function addProduct(){
-		$.post('product_controller?command=ADD',
-			  {
+		var product = {
 				id:"0",
 				name:$('#productName').val(), 
 				price:$('#productPrice').val(),
@@ -11,13 +10,27 @@ $(function(){
 				fullDescription:$('#fullDescription').val(),
 				shortDescription:$('#shortDescription').val(),
 				quantity:$('#productQuantity').val()
-			  }, processAdd)
+			  };
+		$.post('product_controller?command=ADD',
+				  {
+					product: JSON.stringify(product)
+				  }, processAdd, "json");
 	}
 	
 	function processAdd(data){
-		data = JSON.parse(data);
-		var td1 = $('<td>').text(data.name);
-		var td2 = $('<td>').text(data.price);
+		try
+		   {
+		           data = $.parseJSON(data);
+		   }
+		   catch(err)
+		   {
+		   }  
+		var td1 = $('<td>')
+				  .attr('id','name'+data.id)
+				  .text(data.name);
+		var td2 = $('<td>')
+				  .attr('id','price'+data.id)
+				  .text(data.price);
 		var td3 = $('<td>')
 		var btnDisplay = $('<button>')
 						.addClass('btnDisplay')
@@ -31,22 +44,24 @@ $(function(){
 		.text("Delete");
 		btnDel.click(deleteProduct);
 		btnDel.appendTo(td3);
-		var tr = $('<tr>').append(td1).append(td2).append(td3);
+		var tr = $('<tr>').
+				  attr('id', 'product' + data.id).append(td1).append(td2).append(td3);
 		$('#product_list>tbody').append(tr);
+		reset();
+	}
+	
+	function reset() {
+		$('#productId').val("");
+		$('#productName').val("");
+		$('#productImage').val("");
+		$('#productPrice').val("");
+		$('#productQuantity').val("");
+		$('#fullDescription').val("");
+		$('#shortDescription').val("");
 	}
 	
 	function updateProduct(){
-		$.post('product_controller?command=UPDATE',
-			  {
-				id: $('#productId').val(),
-				name:$('#productName').val(), 
-				price:$('#productPrice').val(),
-				image:$('#productImage').val(),
-				fullDescription:$('#fullDescription').val(),
-				shortDescription:$('#shortDescription').val(),
-				quantity:$('#productQuantity').val()
-			  }, processUpdate);
-		/*var mydata = {
+		var product = {
 				id: $('#productId').val(),
 				name:$('#productName').val(), 
 				price:$('#productPrice').val(),
@@ -55,19 +70,23 @@ $(function(){
 				shortDescription:$('#shortDescription').val(),
 				quantity:$('#productQuantity').val()
 			  };
-		$.ajax(
-				   {
-				      data: mydata,
-				      method: 'POST',
-				      url: 'product_controller?command=UPDATE',
-				      success: processUpdate
-				  });*/
+		$.post('product_controller?command=UPDATE',
+				  {
+					product: JSON.stringify(product)
+				  }, processUpdate, "json");
 	}
 	
 	function processUpdate(data){
-		data = JSON.parse(data);
+		try
+		   {
+		           data = $.parseJSON(data);
+		   }
+		   catch(err)
+		   {
+		   }  
 		$('#name' + data.id).html(data.name);
 		$('#price' + data.id).html(data.price);
+		reset();
 	}
 	
 	$('.btnDisplay').click(getProduct);
@@ -83,8 +102,13 @@ $(function(){
 	}
 	
 	function processGet(data) {
-		data = JSON.parse(data);
-		//alert("processGet: " + data.id);
+	   try
+	   {
+	           data = $.parseJSON(data);
+	   }
+	   catch(err)
+	   {
+	   }                
 		$('#productId').val(data.id);
 		$('#productName').val(data.name);
 		$('#productImage').val(data.image);
@@ -103,8 +127,17 @@ $(function(){
 	}
 	
 	function processDelete(data) {
-		data = JSON.parse(data);
+		try
+		   {
+		           data = $.parseJSON(data);
+		   }
+		   catch(err)
+		   {
+		   }  
 		$('#product' + data.id).remove();
+		if (parseInt($("#productId").val()) == parseInt(data.id)) {
+			reset();
+		}
 	}
 })
 

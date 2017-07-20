@@ -28,7 +28,6 @@ public class AddtocartServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("-------sizeeee----------");
 		resp.setContentType("text/html;charset=UTF-8");
         PrintWriter out = resp.getWriter();
 
@@ -37,7 +36,6 @@ public class AddtocartServlet extends HttpServlet {
          
         HttpSession session = req.getSession();
         List<Product> products = ProductStore.getAllProducts();
-        System.out.println("-------sizeeee----------"+products.size());
         session.setAttribute("products", products);
         resp.sendRedirect("catalog.jsp");
 		
@@ -58,7 +56,6 @@ public class AddtocartServlet extends HttpServlet {
 	public void addToCart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		String productiID = request.getParameter("productID");
 		String qty = request.getParameter("quantity");
-		System.out.println("-------Servlet quantity----------"+qty);
 		// Request the Session
 		HttpSession hs = request.getSession();
 		ShoppingCart cart = (ShoppingCart) hs.getAttribute("cart");
@@ -83,7 +80,6 @@ public class AddtocartServlet extends HttpServlet {
 			cart.add(prodID, p, pqty, increment);
 			
 			hs.setAttribute("cart_size", cart.getNumberOfItems());
-			System.out.println("-------Items size----------"+cart.getNumberOfItems());
 			//response.sendRedirect(getServletContext().getContextPath()+"/jsp/catalog.jsp");
 
 		} 

@@ -1,10 +1,7 @@
 package com.wap.controller;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -28,8 +25,6 @@ public class ProductController extends HttpServlet {
 		String id = req.getParameter("id");
 		Product product = null;
 		if ("DISPLAY".equals(command)) {
-			//req.setAttribute("product", ProductStore.getProduct(id));
-			//req.getRequestDispatcher("/jsp/updateProduct.jsp").forward(req, resp);
 			product = ProductStore.getProduct(id);
 		} else if ("DELETE".equals(command)){
 			product = ProductStore.deleteProduct(id);
@@ -62,58 +57,32 @@ public class ProductController extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String command = req.getParameter("command");
 		String id = null;
+		Product product = null;
 		if ("DISPLAY".equals(command)) {
 			id = req.getParameter("id");
-			Product product = ProductStore.getProduct(id);
-			PrintWriter out = resp.getWriter();
-			try{
-				out.print(mapper.writeValueAsString(product));
-			}catch (JsonGenerationException e) {
-				e.printStackTrace();
-			}
+			product = ProductStore.getProduct(id);
 		} else if ("UPDATE".equals(command)) {
-			id = req.getParameter("id");
-			Product p = ProductStore.getProduct(id);
-			if (p != null) {
-				String name = req.getParameter("name");
-				double price = Double.parseDouble(req.getParameter("price"));
-				String image = req.getParameter("image");
-				String fullDescription = req.getParameter("fullDescription");
-				String shortDescription = req.getParameter("shortDescription");
-				int quantity = Integer.parseInt(req.getParameter("quantity"));
-				p.setName(name);
-				p.setPrice(price);
-				p.setImage(image);
-				p.setQuantity(quantity);
-				p.setShortDescription(shortDescription);
-				p.setFullDescription(fullDescription);
-				PrintWriter out = resp.getWriter();
-				try{
-					out.print(mapper.writeValueAsString(p));
-				}catch (JsonGenerationException e) {
-					e.printStackTrace();
-				}
+			String jsonSting = req.getParameter("product");
+			product = mapper.readValue(jsonSting, Product.class);
+			
+			if (product != null) {
+				ProductStore.updateProduct(product.getId(), product);
 			}
 			//resp.sendRedirect(getServletContext().getContextPath() + "/products_admin");
 		} else if ("ADD".equals(command)) {
-			Product p = new Product();
-			String name = req.getParameter("name");
-			double price = Double.parseDouble(req.getParameter("price"));
-			String image = req.getParameter("image");
-			String fullDescription = req.getParameter("fullDescription");
-			String shortDescription = req.getParameter("shortDescription");
-			int quantity = Integer.parseInt(req.getParameter("quantity"));
-			p.setId(String.valueOf(ProductStore.genId()));
-			p.setName(name);
-			p.setPrice(price);
-			p.setImage(image);
-			p.setQuantity(quantity);
-			p.setShortDescription(shortDescription);
-			p.setFullDescription(fullDescription);
-			ProductStore.updateProduct(p.getId(), p);
+			String jsonSting = req.getParameter("product");
+			product = mapper.readValue(jsonSting, Product.class);
+			
+			if (product != null) {
+				product.setId(String.valueOf(ProductStore.genId()));
+				ProductStore.updateProduct(product.getId(), product);
+			}
+		}
+		
+		if (product != null) {
 			PrintWriter out = resp.getWriter();
 			try{
-				out.print(mapper.writeValueAsString(p));
+				out.print(mapper.writeValueAsString(product));
 			}catch (JsonGenerationException e) {
 				e.printStackTrace();
 			}
