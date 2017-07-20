@@ -1,6 +1,8 @@
 package com.wap.model;
-public class BillingAddress extends Address{
+
+public class ShippingAddress extends Address{
 	
+<<<<<<< HEAD
 	private int id;
 	private String fullName;
 	private String street;
@@ -8,21 +10,16 @@ public class BillingAddress extends Address{
 	private String state;
 	private String country;
 	private String zipcode;
-	
-	
-	
-	
 	/**
 	 * @param id
 	 * @param fullName
 	 * @param street
-	 * @param street2
 	 * @param city
 	 * @param state
 	 * @param country
 	 * @param zipcode
 	 */
-	public BillingAddress(int id, String fullName, String street, String city, String state,
+	public ShippingAddress(int id, String fullName, String street, String city, String state,
 			String country, String zipcode) {
 		super();
 		this.id = id;
@@ -117,5 +114,23 @@ public class BillingAddress extends Address{
 	public void setZipcode(String zipcode) {
 		this.zipcode = zipcode;
 	}
+	
+	
+	
+	
+	
+=======
+	Account account;
+>>>>>>> branch 'master' of https://github.com/ducvo1983/WebStore.git
+
+	public Account getAccount() {
+		return account;
+	}
+
+	public void setAccount(Account account) {
+		this.account = account;
+	}
+	
+	
 	
 }

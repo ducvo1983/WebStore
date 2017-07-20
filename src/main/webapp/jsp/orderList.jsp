@@ -23,10 +23,10 @@
 								<h1>"${order.id }"</h1>
 								<h2>"${order.orderDate }"</h2>
 							</div>
-						<c:forEach items="order.products" var="product">
+						<c:forEach items="order.cartItem" var="cartItem">
 							<div>
-								<p> "${product.name }" </p>
-								<p> "${product.price }" </p>
+								<p> "${cartItem.quantity}" </p>
+								<p> "${cartItem.product.quantity}" </p>
 								
 							</div>
 							<hr>

@@ -1,6 +1,6 @@
 package com.wap.model;
 
-public class ShippingAddress {
+public class ShippingAddress extends Address{
 	
 	private int id;
 	private String fullName;
@@ -114,9 +114,4 @@ public class ShippingAddress {
 		this.zipcode = zipcode;
 	}
 	
-	
-	
-	
-	
-
 }

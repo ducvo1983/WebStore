@@ -1,6 +1,8 @@
 package com.wap.model;
+
 public class BillingAddress extends Address{
 	
+<<<<<<< HEAD
 	private int id;
 	private String fullName;
 	private String street;
@@ -116,6 +118,19 @@ public class BillingAddress extends Address{
 	 */
 	public void setZipcode(String zipcode) {
 		this.zipcode = zipcode;
+	}
+	
+	
+=======
+	Payment payment;
+>>>>>>> branch 'master' of https://github.com/ducvo1983/WebStore.git
+
+	public Payment getPayment() {
+		return payment;
+	}
+
+	public void setPayment(Payment payment) {
+		this.payment = payment;
 	}
 	
 }
