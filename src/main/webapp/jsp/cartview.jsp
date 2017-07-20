@@ -22,9 +22,9 @@
 				    <div class="backtoshopping">
 				       <a class="link_button" href="<c:url value="products"/>">back shopping</a>
 				    </div>
-					<div class="shopping_logout">
+			<!--  		<div class="shopping_logout">
 						<a class="link_button" href="/LogoutServlet">logout</a>
-					</div>
+					</div>-->
 				</div>
 			</div>
 		</div>
@@ -97,9 +97,11 @@
 					<div class="quantity">
 						<span>Total price</span>
 					</div>
-
+					<c:url  var="checkout_url" value="/checkout">
+						<c:param name="action" value="CHECKOUT"></c:param>
+					</c:url>
 					<div class="total-price"><span>\$</span><span id="totalamount"> ${cart.getTotalAmount()}</span>
-					    <a id="checkoutbutton" class="link_button_checkout" href="<c:url value="/checkout"/>">Checkout</a>
+					    <a id="checkoutbutton" class="link_button_checkout" href="${checkout_url}">Checkout</a>
 					</div>
                </div>
 		</div>

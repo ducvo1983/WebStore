@@ -59,7 +59,8 @@ public class OrderController extends HttpServlet {
 				OrderStore.updateOrder(OrderStore.genId(), order);
 				cart.finalizeCart();
 				s.setAttribute("cart", null);
-				resp.sendRedirect("/jsp/thankyou.jsp");
+				s.setAttribute("cart_size", 0);
+				resp.sendRedirect(getServletContext().getContextPath() + "/jsp/thankyou.jsp");
 			}
 		}
 	}

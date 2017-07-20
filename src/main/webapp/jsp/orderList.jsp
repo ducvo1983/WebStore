@@ -23,7 +23,7 @@
 								<h1>"${order.id }"</h1>
 								<h2>"${order.orderDate }"</h2>
 							</div>
-						<c:forEach items="order.cartItem" var="cartItem">
+						<c:forEach items="${order.items}" var="cartItem">
 							<div>
 								<p> "${cartItem.quantity}" </p>
 								<p> "${cartItem.product.quantity}" </p>

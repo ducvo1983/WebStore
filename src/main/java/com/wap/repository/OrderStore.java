@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+import com.wap.model.Account;
 import com.wap.model.Order;
 
 public class OrderStore {
@@ -26,6 +27,16 @@ public class OrderStore {
 			return database.get(Integer.parseInt(id));
 	   }
 		
+		public static List<Order> getOrders(int userId) {
+			List<Order> orders = new ArrayList<>();
+			for (Order o :  getAllOrders()) {
+				Account acc = o.getCart().getHolderName();
+				if (acc.getUserId() == userId) {
+					orders.add(o);
+				}
+			}
+			return orders;
+		}
 		
 		public static Order deleteOrder(String id) {
 			return database.remove(Integer.parseInt(id));

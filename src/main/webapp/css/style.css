@@ -120,16 +120,17 @@ body {
 }
 
 .shoppingcard {
+	padding-top:20px;
 	position: relative;
-	margin-left: 100px;
+	margin-left: 80px;
 	margin-top: 10px;
-	width: 55%;
+	width: 85%;
 	height: 80px;
 }
 
 .shopping_cart {
-	position: absolute;
-	bottom: 0px;
+	float:left;
+
 }
 
 .shoppingcardv {
@@ -141,11 +142,11 @@ body {
 }
 
 .shopping_input {
-	display: inline-block;
-	position: absolute;
-	bottom: 0px;
+
+	float:left;
+
 	width: 25px;
-	margin-left: 50px;
+
 }
 
 .sizeclass {
@@ -154,10 +155,10 @@ body {
 }
 
 .shopping_checkout {
-	position: absolute;
-	bottom: 0px;
+	float: left;
 	width: 120px;
-	margin-left: 90px;
+	margin-left: 10px;
+	margin-right: 10px;
 }
 
 .shopping_logout {
@@ -408,8 +409,22 @@ button:focus, input:focus {
 }
 
 .shopping_cartview {
-	position: absolute;
-	bottom: 0px;
+	float:right;
 	width: 120px;
-	margin-left: 90px;
+	
+}
+
+ul#menus li {
+	display: inline-block;
+	width: 120px;
+}
+.profile{
+	float:left;
+	margin-right: 10px;
+}
+
+.logout1{
+	float:left;
+	
+	
 }

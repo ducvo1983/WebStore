@@ -28,7 +28,7 @@ function checkResult(data) {
 	console.log(data);
 	if (valid) {
 		//var context_path = "<%=request.getContextPath()%>";
-		window.location.replace("/webstore/checkout");
+		window.location.replace("/webstore/checkout?action=CHECKOUT");
 	}
 }
 
@@ -78,11 +78,11 @@ function updateShoppingCard2() {
 				c = parseInt($("#i_number").val());
 			
 			}
-			//$("#pdquantity").val("");
+			$("#pdquantity").val("");
 			c = parseInt(q)+c;
 		    
 			$("#i_number").val(c);
-			executeAddToChart(id, q);
+			executeAddToChart(id, "+" + q);
 		
 			
 		}

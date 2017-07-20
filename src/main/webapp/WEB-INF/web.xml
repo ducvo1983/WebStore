@@ -55,4 +55,20 @@
 	<servlet-name>order</servlet-name>
 	<url-pattern>/order</url-pattern>
   </servlet-mapping> 
+  <servlet>  
+   <servlet-name>profile</servlet-name>  
+   <servlet-class>com.wap.controller.ProfileServlet</servlet-class>  
+  </servlet> 
+  <servlet-mapping>
+	<servlet-name>profile</servlet-name>
+	<url-pattern>/profile</url-pattern>
+  </servlet-mapping>
+  <servlet>  
+   <servlet-name>logout</servlet-name>  
+   <servlet-class>com.wap.controller.LogoutController</servlet-class>  
+  </servlet> 
+  <servlet-mapping>
+	<servlet-name>logout</servlet-name>
+	<url-pattern>/logout</url-pattern>
+  </servlet-mapping>  
 </web-app>

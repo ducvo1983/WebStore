@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Product detail</title>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="<c:url value='/js/webstore.js'/>"></script>
 <link rel="stylesheet" type="text/css" href="<c:url value ='/css/style.css'/>" />
@@ -55,7 +55,7 @@
 					<hr>
 					<h2>Product Price $:${product.price} </h2>
 				     <input type="hidden" value="${product.id}" id="hpid"/>
-					 <label>Quantity <input class="sizeclassn" required="required" type="number" value="${cartItemQuantity}" id="pdquantity"/></label>
+					 <label>Quantity <input class="sizeclassn" required="required" type="number" value="0" id="pdquantity"/></label>
 					<hr>
 					<div class="row">
 						<div class=" col-lg-6">

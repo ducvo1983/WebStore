@@ -46,6 +46,8 @@ public class CheckoutServlet extends HttpServlet {
 					e.printStackTrace();
 				}
 			//}
+		} else if ("CHECKOUT".equals(action)) {
+			doPost(req, resp);
 		}
 	}
 	

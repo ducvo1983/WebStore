@@ -14,10 +14,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.wap.model.Account;
+
 @WebFilter(
 filterName = "webstoreFilter",
-urlPatterns = { "/checkout" },
-servletNames = { "checkout" }
+urlPatterns = { "/checkout", "/products_admin", "/product_controller", "/order" },
+servletNames = { "checkout", "products_admin", "product_controller", "order" }
 )
 public class AccountFilter implements Filter {
 
@@ -36,12 +38,19 @@ public class AccountFilter implements Filter {
         HttpSession s = req.getSession();
 		if (s == null ||
 			s.getAttribute("username") == null) {
-			if (!"CHECKQUANTITY".equals(req.getParameter("action"))) {
+			String action = req.getParameter("action");
+			boolean isValid = ("PRODUCTDETAIL".equals(action)) ||
+					("CHECKQUANTITY".equals(action));
+			if (!isValid) {
+				if ("CHECKOUT".equals(action)){
+					s.setAttribute("origin_url", "/checkout?action=CHECKOUT");
+				}
 				resp.sendRedirect(req.getServletContext().getContextPath() + "/jsp/login.jsp");
 			} else {
 				chain.doFilter(req, resp);
 			}
 		} else {
+			//TODO: Check if the user is not admin but he/she wants to navigate to admin pages
 			chain.doFilter(req, resp);
 		}
 	}

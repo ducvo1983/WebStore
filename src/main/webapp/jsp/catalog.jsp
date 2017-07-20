@@ -19,7 +19,7 @@
 		</div>
 		<div class="menu">
 		  <div class="shoppingcard">
-		    <div class="shopping_cart">
+		  	<div class="shopping_cart">
 		     <img alt="shopping_cartImage" src="images/shpp.png">
 		     </div>
 		     <div class="shopping_input">
@@ -27,6 +27,22 @@
 		     </div>
 		      <div class="shopping_checkout">
 		           <a class="link_button" href="<c:url value ="/cartViewServlet"/>">view cart</a>
+		     </div>
+		     <div class="profile">
+		     <c:choose>
+		     <c:when test="${username != null }">
+		       <a class="link_button" href="<c:url value ='/profile'/>">profile</a>
+		     </c:when>
+		     <c:otherwise>
+		     <a class="link_button" href="<c:url value ='/login'/>">login</a>
+		     </c:otherwise>
+		     </c:choose>
+		     </div>
+		      <div class="profile">
+		     <c:if  test="${username != null }">
+		       <a class="link_button" href="<c:url value ='/logout'/>">Logout</a>
+		     </c:if>
+		     
 		     </div>
 		  </div>
 		  </div>
